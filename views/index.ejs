@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Homepage</title>
+  <link rel="stylesheet" href="../public/styles.css">
+</head>
+<body>
+  <a href="/login">Login</a>
+  <a href="/register">Sign Up</a>
+
+  <h1>Random thoughts from you Klubhouse legends:</h1>
+  <p>To see who and when people wrote messages, login or sign up!</p>
+  <p>It costs you nothing. Not even your freedom. Just do it.</p>
+  <% if (locals.user) {%>
+    <h1>WELCOME BACK <%= user.username %></h1>
+    <a href="/log-out">LOG OUT</a>
+  <% } else { %>
+    <h1>please log in</h1>
+    <form action="/log-in" method="POST">
+      <label for="username">Username</label>
+      <input id="username" name="username" placeholder="username" type="text" />
+      <label for="password">Password</label>
+      <input id="password" name="password" type="password" />
+      <button>Log In</button>
+    </form>
+  <%}%>
+</body>
+</html>
