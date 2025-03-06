@@ -1,6 +1,5 @@
 const pool = require("./pool");
 
-
 // Get (SELECT) functions
 async function getAllMessages() {
   const { rows } = await pool.query("SELECT * FROM messages");
@@ -28,7 +27,7 @@ async function addNewUser(values, hashedPassword) {
     INSERT INTO users 
     (email, firstName, lastName, gender, ageGroup, country, pwHash)
     VALUES
-    ($1, $2, $3, $4, $5, $6, $7, $8)`, 
+    ($1, $2, $3, $4, $5, $6, $7)`, 
     [values.email, values.fName, values.lName, values.gender, values.ageGroup, values.country, hashedPassword]);
   return rows;
 }
