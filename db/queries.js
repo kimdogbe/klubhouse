@@ -23,13 +23,13 @@ async function getAllMessageByUser(userId) {
 }
 
 // Add (INSERT) functions
-async function addNewUser(values) {
+async function addNewUser(values, hashedPassword) {
   const { rows } = await pool.query(`
     INSERT INTO users 
-    (email, firstName, lastName, gender, ageGroup, country, pwHash, salt)
+    (email, firstName, lastName, gender, ageGroup, country, pwHash)
     VALUES
-    ($1, $2, $3, $4, $5, $6, $7, $8, $9)`, 
-    [values.email, values.fName, values.lName, values.gender, values.ageGroup, values.country, values.pwHash, values.salt]);
+    ($1, $2, $3, $4, $5, $6, $7, $8)`, 
+    [values.email, values.fName, values.lName, values.gender, values.ageGroup, values.country, hashedPassword]);
   return rows;
 }
 
