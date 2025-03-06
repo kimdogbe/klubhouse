@@ -1,5 +1,4 @@
 body {
-  background-color: rgb(240, 210, 171);
   display: flex;
   flex-direction: column;
   margin: 0px;
@@ -31,16 +30,19 @@ input, select {
   border: 1px black solid;
   display:block;
   margin-bottom: 10px;
+  width: 90%;
 }
 
 label {
   display: block;
+  font-size: 0.8em;
+  margin-bottom: 5px;
 }
 
 .card {
   display: flex;
   flex-direction: column;
-  background-color: aliceblue;
+  background-color: rgb(243, 241, 235);
   padding: 1.5em;
   border-radius: 10px;
   margin: 1em auto;
@@ -49,4 +51,20 @@ label {
 
 .nav-login {
   margin-left: auto;
+}
+
+html {
+  --s: 220px; /* control the size*/
+  --c1: #f26b1c;
+  --c2: #638ca1;
+  
+  --_g:radial-gradient(#0000 60%,var(--c1) 61% 63%,#0000 64% 77%,var(--c1) 78% 80%,#0000 81%);
+  --_c:,#0000 75%,var(--c2) 0;
+  background:
+    conic-gradient(at 12% 20% var(--_c)) calc(var(--s)* .44) calc(.9*var(--s)),
+    conic-gradient(at 12% 20% var(--_c)) calc(var(--s)*-.06) calc(.4*var(--s)),
+    conic-gradient(at 20% 12% var(--_c)) calc(.9*var(--s)) calc(var(--s)* .44),
+    conic-gradient(at 20% 12% var(--_c)) calc(.4*var(--s)) calc(var(--s)*-.06),
+    var(--_g),var(--_g) calc(var(--s)/2) calc(var(--s)/2) var(--c2);
+  background-size: var(--s) var(--s);
 }
