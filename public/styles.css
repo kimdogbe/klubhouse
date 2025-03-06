@@ -24,6 +24,26 @@ h1, p {
   margin: 10px auto;
 }
 
+input {
+  padding: 0.5em 1em;
+  font-size: 1em;
+  border-radius: 10px;
+  border: 1px black solid;
+  display:block;
+  margin-bottom: 10px;
+}
+
+label {
+  display: block;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  margin: 1em auto;
+  gap: 10px;
+}
+
 .nav-login {
   margin-left: auto;
 }
