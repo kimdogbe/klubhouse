@@ -36,7 +36,7 @@ async function addNewMessage(message, timeCreated, userId) {
   await pool.query(`
     INSERT INTO messages
     (message, timeCreated, timeUpdated, likes, author) 
-    VALUES($1, $2, $3, 0, $4)`, 
+    VALUES($1, to_timestamp($2), $3, 0, $4)`, 
     [message, timeCreated, null, userId]);
 }
 

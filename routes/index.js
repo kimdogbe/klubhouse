@@ -20,14 +20,7 @@ router.get("/logout", (req, res, next) => {
     res.redirect("/");
   });
 });
-router.post(
-  "/create-message", 
-  passport.authenticate("local", {
-    successRedirect: "/",
-    failureRedirect: "/login-failure",
-  }),
-  userController.addNewMessageToDB
-);
+router.post("/create-message", userController.addNewMessageToDB);
 
 // TODO: Add validation to forms using express-validator
 router.post('/login', passport.authenticate("local", {

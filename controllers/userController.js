@@ -16,13 +16,12 @@ async function addUserToDB(req, res) {
 
 async function addNewMessageToDB(req, res) {
   try {
-    const message = req.body.messsage;
-    const userId = req.userId
-    const hashedPassword = await bcrypt.hash(req.body.password, 10);
-    const result = await db.addNewMessage(message, Date.now(), req.userId);
+    console.log(req.body)
+    const message = req.body.message;
+    const result = await db.addNewMessage(message, Date.now(), req.user.id);
     console.log("Message successfully added: ");
     console.log(result);
-    res.redirect('/login');
+    res.redirect('/');
   } catch (error) {
     console.log(error);
     res.send('Error');
