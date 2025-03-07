@@ -8,8 +8,13 @@
 <body>
   <nav>
     <div class="nav-login">
-      <a href="/login">Login</a>
-      <a href="/sign-up">Sign Up</a>
+      <% if (locals.user) {%>
+        <h3>Hey, <%= user.fName %></h3>
+        <a href="/logout">Logout</a>
+      <% } else { %>
+        <a href="/login">Login</a>
+        <a href="/sign-up">Sign Up</a>
+      <%}%>
     </div>
   </nav>
 
@@ -22,7 +27,7 @@
   <% } else { %>
     <h1>please log in</h1>
     <div class="card">
-      <form action="/log-in" method="POST">
+      <form action="/login" method="POST">
         <label for="username">Username</label>
         <input id="username" name="username" placeholder="username" type="text" />
         <label for="password">Password</label>
