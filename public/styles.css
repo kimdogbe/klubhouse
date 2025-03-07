@@ -17,6 +17,7 @@ nav a {
   background-color: rgb(249, 156, 35);
   padding: 10px;
   border-radius: 10px;
+  height: fit-content;
 }
 
 h1, p {
@@ -51,6 +52,9 @@ label {
 
 .nav-login {
   margin-left: auto;
+  display: flex;
+  gap: 1em;
+  align-items: center;
 }
 
 html {

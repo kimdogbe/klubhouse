@@ -9,7 +9,7 @@
   <nav>
     <div class="nav-login">
       <% if (locals.user) {%>
-        <h3>Hey, <%= user.fName %></h3>
+        <h3>Hey, <%= user.firstname %></h3>
         <a href="/logout">Logout</a>
       <% } else { %>
         <a href="/login">Login</a>
@@ -22,8 +22,7 @@
   <p>To see who and when people wrote messages, login or sign up!</p>
   <p>It costs you nothing. Not even your freedom. Just do it.</p>
   <% if (locals.user) {%>
-    <h1>WELCOME BACK <%= user.username %></h1>
-    <a href="/log-out">LOG OUT</a>
+    <h1>WELCOME BACK <%= user.firstname %></h1>
   <% } else { %>
     <h1>please log in</h1>
     <div class="card">
