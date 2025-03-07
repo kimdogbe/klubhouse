@@ -32,12 +32,12 @@ async function addNewUser(values, hashedPassword) {
   return rows;
 }
 
-async function addNewMessage(values, userId) {
+async function addNewMessage(message, timeCreated, userId) {
   await pool.query(`
     INSERT INTO messages
     (message, timeCreated, timeUpdated, likes, author) 
     VALUES($1, $2, $3, 0, $4)`, 
-    [values.message, values.timeCreated, values.timeUpdated, userId]);
+    [message, timeCreated, null, userId]);
 }
 
 // Update (UPDATE) functions

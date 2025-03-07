@@ -7,7 +7,8 @@ const router = Router();
 
 router.get('/', pageController.showHomePage);
 router.get('/login', pageController.showLoginPage);
-router.get('/sign-up', pageController.showSignUpPage)
+router.get('/sign-up', pageController.showSignUpPage);
+router.get('/create-message', pageController.showCreateMessagePage);
 router.get('/login-failure', (req, res) => {
   res.render("login-failure");
 })
@@ -19,6 +20,14 @@ router.get("/logout", (req, res, next) => {
     res.redirect("/");
   });
 });
+router.post(
+  "/create-message", 
+  passport.authenticate("local", {
+    successRedirect: "/",
+    failureRedirect: "/login-failure",
+  }),
+  userController.addNewMessageToDB
+);
 
 // TODO: Add validation to forms using express-validator
 router.post('/login', passport.authenticate("local", {
