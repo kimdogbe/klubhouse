@@ -1,9 +1,9 @@
 const db = require("../db/queries");
 
 async function showHomePage(req, res) {
-  // const allMessages = await db.getAllMessages();
-  // console.log(allMessages);
-  res.render("index", { user: req.user });
+  const allMessages = await db.getAllMessages();
+  console.log(allMessages);
+  res.render("index", { user: req.user, messages: allMessages });
 }
 
 function showLoginPage(req, res) {
